@@ -8,7 +8,7 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 public class StoreBox implements ActionListener{
-
+	// containers & components
     private JFrame f;
 	private JOptionPane op;
 	private JPanel p1, p2, p3;
@@ -55,8 +55,10 @@ public class StoreBox implements ActionListener{
 	}
 	
 	public void launchFrame() {
+		// panel 1
 		p1.add(l1);
 
+		// panel 2
 		l2.setHorizontalAlignment(JLabel.CENTER);
 		l3.setHorizontalAlignment(JLabel.CENTER);
 		l4.setHorizontalAlignment(JLabel.CENTER);
@@ -72,10 +74,11 @@ public class StoreBox implements ActionListener{
 		p2.add(l5);
 		p2.add(cb);
 		
-		// p3.setLayout(new GridLayout(1,1));
+		// panel 3
 		p3.add(b1);
 		p3.add(b2);
 		
+		// frame
 		f.add(p1, BorderLayout.NORTH);
 		f.add(p2, FlowLayout.CENTER);
 		f.add(p3, BorderLayout.SOUTH);
@@ -86,7 +89,6 @@ public class StoreBox implements ActionListener{
 		f.setLocationRelativeTo(null);
 		
 		// events
-		// f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		f.addWindowListener(new CloseButton());
 		b1.addActionListener(this);
 		b2.addActionListener(this);
@@ -99,10 +101,6 @@ public class StoreBox implements ActionListener{
         String text3 = tf3.getText();
         String textVar[] = { text1, text2, text3 };
 		String boxSize = (String) cb.getSelectedItem();
-        // String[] textArray = text.split("");
-
-		// recordList.add(new User(text1, text2, text3, (String) cb.getSelectedItem()));
-		
 		
 		if (source == b1) {
 			if (boxSizeChecker(boxSize) != 0) {

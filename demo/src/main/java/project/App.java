@@ -14,14 +14,18 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public final class App implements ActionListener{
+public final class App implements ActionListener {
+	
+	// containers and components
     private JFrame f;
 	private JPanel p1, p2, p3;
 	private JLabel l1, l2, l3, l4;
 	private JButton b1, b2, b3;
 	
+	// values 
 	static int smallStorage = 5, mediumStorage = 3, largeStorage = 2, userID = 1;
 
+	// database
 	static Connection connection;
 	static Statement statement;
 	
@@ -48,11 +52,11 @@ public final class App implements ActionListener{
 		b3 = new JButton("See Users");
 	}
 	
-	public void launchFrame()	{
-		// p1.setLayout(new GridLayout(1,1));
-		// ta.setLineWrap(true);
+	public void launchFrame() {
+		// panel 1
 		p1.add(l1);
 
+		// panel 2
 		l2.setHorizontalAlignment(JLabel.CENTER);
 		l3.setHorizontalAlignment(JLabel.CENTER);
 		l4.setHorizontalAlignment(JLabel.CENTER);
@@ -62,11 +66,12 @@ public final class App implements ActionListener{
 		p2.add(l3);
 		p2.add(l4);
 		
-		// p3.setLayout(new GridLayout(1,1));
+		// panel 3
 		p3.add(b1);
 		p3.add(b2);
 		p3.add(b3);
 		
+		// frame
 		f.add(p1, BorderLayout.NORTH);
 		f.add(p2, BorderLayout.CENTER);
 		f.add(p3, BorderLayout.SOUTH);

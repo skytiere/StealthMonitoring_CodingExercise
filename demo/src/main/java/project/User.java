@@ -2,8 +2,6 @@ package project;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.swing.*;
 import java.sql.ResultSet;
@@ -13,14 +11,10 @@ public class User implements ActionListener {
     private String firstName, lastName, number, boxSize;
 
     private JFrame f;
-	private JOptionPane op;
-    private JPanel p1, p2, p3;
+    private JPanel p1, p2;
     private JScrollPane sp;
     private JTextArea ta;
-	private JTextField tf1, tf2, tf3;
-	private JLabel l1, l2, l3, l4, l5;
 	private JButton b1;
-    private JComboBox<String> cb;
     
     App app = new App();
     ResultSet resultSet;
@@ -53,36 +47,16 @@ public class User implements ActionListener {
 		// container
 		// frame
 		f = new JFrame("FrontDeskApp");
-		
-		// dialog
-        op = new JOptionPane();
         
         ta = new JTextArea(16,12);
 		
 		// panels
 		p1 = new JPanel();
 		p2 = new JPanel();
-        p3 = new JPanel();
 		
         sp = new JScrollPane(ta, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
 		// components
-		// labels
-		l1 = new JLabel("Enter the following details: ");
-		l2 = new JLabel("First Name: ");
-		l3 = new JLabel("Last Name: ");
-		l4 = new JLabel("Phone Number: ");
-		l5 = new JLabel("Box Size: ");
-		
-		// text fields 
-		tf1 = new JTextField("");
-		tf2 = new JTextField("");
-		tf3 = new JTextField("");
-
-		// combo box
-		String cbArray[] = {"Small","Medium","Large"};
-		cb = new JComboBox<String>(cbArray);
-		
 		// buttons
 		b1 = new JButton("Back");
 	}
@@ -94,12 +68,10 @@ public class User implements ActionListener {
 		p1.setLayout(new GridLayout(1,1));
 		p1.add(sp);
 		
-		// p3.setLayout(new GridLayout(1,1));
-		p3.add(b1);
+		p2.add(b1);
 		
 		f.add(p1, BorderLayout.CENTER);
-		// f.add(p2, FlowLayout.CENTER);
-		f.add(p3, BorderLayout.SOUTH);
+		f.add(p2, BorderLayout.SOUTH);
 		
 		f.pack();
 		f.setSize(1100,400);
@@ -107,7 +79,6 @@ public class User implements ActionListener {
 		f.setLocationRelativeTo(null);
 		
 		// events
-        // f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         b1.addActionListener(this);
         f.addWindowListener(new CloseButton());
         

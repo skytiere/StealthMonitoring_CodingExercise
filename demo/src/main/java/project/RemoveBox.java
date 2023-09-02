@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
 import javax.swing.*;
 
 public class RemoveBox implements ActionListener {
@@ -49,11 +48,9 @@ public class RemoveBox implements ActionListener {
         l2.setHorizontalAlignment(JLabel.CENTER);
         tf.setHorizontalAlignment(JTextField.CENTER);
 		
-		// p2.setLayout(new GridLayout(1,2));
 		p2.add(l2);
         p2.add(tf);
 		
-		// p3.setLayout(new GridLayout(1,1));
         p3.add(b1);
         p3.add(b2);
 		
@@ -67,7 +64,6 @@ public class RemoveBox implements ActionListener {
 		f.setLocationRelativeTo(null);
 		
 		// events
-        // f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         f.addWindowListener(new CloseButton());
         b1.addActionListener(this);
         b2.addActionListener(this);
@@ -77,19 +73,11 @@ public class RemoveBox implements ActionListener {
         Object source = ae.getSource();
         
         try {
-            // System.out.println(app.connection.isClosed());
-            
             if (source == b1) {
                 int userID = Integer.parseInt(tf.getText());
                 String sql = "SELECT * FROM Users WHERE UserID = " + userID + ";";
                 resultSet = app.statement.executeQuery(sql);
                 
-                // String sql = "SELECT * FROM Users";
-                // System.out.println("Problem is here1");
-                
-                // System.out.println("Problem is here2");
-
-                // String timeString = resultSet.getString(7);
                 String timeString = "";
 
                 while (resultSet.next()) {

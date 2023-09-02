@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class CloseButton extends WindowAdapter {
     public void windowClosing(WindowEvent we) throws SQLException {
+        // close connection to DB
         new App().connection.close();
-        System.out.println("Connection Closed");
 		System.exit(0);	// Ends the Program
 	}
 }
